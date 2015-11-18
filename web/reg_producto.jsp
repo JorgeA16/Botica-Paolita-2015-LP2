@@ -7,8 +7,21 @@
 <%
             ProductoDao dao = new ProductoDaoImpl();
 %>
-<%!
+<%
             String buscar;
+            int idpoducto =0;
+            idpoducto = request.getParameter("id_producto") == null ? 0:Integer.parseInt(request.getParameter("id_producto"));
+            String tipo = request.getParameter("tipo");
+            tipo = request.getParameter("tipo")==null?"":tipo;
+            Producto p = new Producto();
+            if(tipo.equals("editar")){
+                
+                p=dao.buscarProductoID(idpoducto);
+                p.getNombre_producto();
+                p.getCantidad();
+                p.getComposicion();
+            
+            }
         %>
         <%
             buscar = request.getParameter("buscar");
@@ -23,22 +36,22 @@
         <div class="modal-group">
             <div class="form-group">
                 <label for="exampleInputPassword1">Nombre Producto</label>
-                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre Producto">
+                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre Producto" value="<%=p.getNombre_producto()%>">
             </div>
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Cantidad</label>
-            <input type="number" class="form-control" id="Cantidad" name="cantidad" placeholder="Cantidad">
+            <input type="number" class="form-control" id="Cantidad" name="cantidad" placeholder="Cantidad" value="<%=p.getCantidad()%>">
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Composicion</label>
-            <input type="text" class="form-control" id="Composicion" name="Composicion" placeholder="Composicion">
+            <input type="text" class="form-control" id="Composicion" name="Composicion" placeholder="Composicion" value="<%=p.getComposicion()%>">
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">FECHA</label>
-            <input  type="date" name="fecha">
+            <input  type="date" name="fecha" value="1989-10-10">
         </div>
-       <select class="form-control" name="unime" value="">
+       <select class="form-control" name="unime">
             <option>Unidad De Medida</option>
             <%
             for(Unidad_Medida unid:dao.listaruni_med()){
@@ -47,7 +60,7 @@
            <%}%>
         </select>
         <br>
-        <select class="form-control" name="sec" value="">
+        <select class="form-control" name="sec">
             <option>Seccion</option>
            <%
             for(Seccion sec:dao.listarseccion()){
@@ -57,13 +70,11 @@
         </select>
         <br>
         <div class="form-group">
-            <tr>
-                <td colspan="2" align="center">
+            
                     <input type="submit" class="btn btn-primary" value="Registrar"> 
                     <input type="reset" class="btn btn-default" value="Limpiar">
                     <button type="button" class="btn btn-default" data-dismiss="modal">CERRAR</button> 
-                </td>
-            </tr>
+                
         </div>
     </form>
     </div>
@@ -102,7 +113,7 @@
                 <td><%=pro.getCantidad()%></td>
                 <td><%=pro.getId_unidad_medida()%></td>
                 <td><%=pro.getId_seccion()%></td>
-                <td><a href="producto_edit_delet.jsp?id_producto=<%=pro.getId_producto()%>">Editar</a></td>
+                <td><a href="reg_producto.jsp?id_producto=<%=pro.getId_producto()%>&tipo=editar">Editar</a></td>
                 <td><a href="producto_edit_delet.jsp?id_producto=<%=pro.getId_producto()%>&opcion=Eliminar">Eliminar</a></td>
 
             </tr>

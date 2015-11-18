@@ -15,4 +15,5 @@ public interface ProductoDao {
     public List<Seccion> listarseccion();
     public List<Producto> filtrarProducto(String nombre_producto);
     public long contarProducto(int nombre_producto);
+    public Producto buscarProductoID(int id_producto);
 }

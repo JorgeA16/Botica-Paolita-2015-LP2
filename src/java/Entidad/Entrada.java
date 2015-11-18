@@ -2,7 +2,7 @@ package Entidad;
 
 
 public class Entrada {
-    private int entrada;
+    private int id_entrada;
     private int igv;
     private int descuento;
     private int serie;
@@ -17,12 +17,12 @@ public class Entrada {
     public Entrada() {
     }
 
-    public int getEntrada() {
-        return entrada;
+    public int getId_Entrada() {
+        return id_entrada;
     }
 
-    public void setEntrada(int entrada) {
-        this.entrada = entrada;
+    public void setId_Entrada(int id_entrada) {
+        this.id_entrada = id_entrada;
     }
 
     public int getIgv() {

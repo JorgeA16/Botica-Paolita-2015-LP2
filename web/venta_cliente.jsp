@@ -7,15 +7,15 @@
 <%    ProductoDao dao = new ProductoDaoImpl();
 %>
 <%!
-            String buscar;
-        %>
-        <%
-            buscar = request.getParameter("buscar");
-            if (buscar == null) {
-                buscar = "";
-            }
+    String buscar;
+%>
+<%
+    buscar = request.getParameter("buscar");
+    if (buscar == null) {
+        buscar = "";
+    }
 
-        %>
+%>
 <div class="col-lg-6" >
     <div class="row" style="margin: 5px;">
         <form action="insertardato.jsp">
@@ -37,16 +37,15 @@
                 <label for="exampleInputPassword1">FECHA</label>
                 <input  type="date" name="fecha">
             </div>
-            <select class="form-control" name="unime" value="">
+            <select class="form-control" name="unime">
                 <option>Unidad De Medida</option>
-                <%
-                    for (Unidad_Medida unid : dao.listaruni_med()) {
+                <%                    for (Unidad_Medida unid : dao.listaruni_med()) {
                 %>
                 <option value="<%=unid.getId_unidad_medida()%>"><%=unid.getNombre_unida_med()%></option>
                 <%}%>
             </select>
             <br>
-            <select class="form-control" name="sec" value="">
+            <select class="form-control" name="sec">
                 <option>Seccion</option>
                 <%
                     for (Seccion sec : dao.listarseccion()) {
@@ -93,10 +92,10 @@
                                             <label for="exampleInputPassword1">Celular</label>
                                             <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Celular">
                                         </div>
-                                        <select class="form-control" name="Sexo" value="Sexo">
-                                            <option>Sexo</option>
-                                            <option>M</option>
-                                            <option>F</option>
+                                        <select class="form-control" name="Sexo">
+                                            <option>Seleccionar</option>
+                                            <option value="M">Masculino</option>
+                                            <option value="F">Femenino</option>
                                         </select>
                                     </div>
                                     <div class="modal-footer">
@@ -106,8 +105,6 @@
                                 </div>
                             </div>
                         </div>
-                    </td>
-                </tr>
             </div>
         </form>
     </div>
@@ -118,7 +115,7 @@
             <tr>
                 <td align="left" width="50%">
                     Nombre:
-                     <input type="text" name="buscar" value="<%=buscar%>" placeholder="Buscar" size="15"/>
+                    <input type="text" name="buscar" value="<%=buscar%>" placeholder="Buscar" size="15"/>
                     <input type="submit" name="btn btn-defaul" value="Buscar"/>
                 </td>
             </tr>
@@ -137,9 +134,9 @@
             </thead>
             <tbody>
                 <%
-                int i=0;
-                    for (Producto pro: dao.listarProducto(buscar)) {
-                        i=i+1;
+                    int i = 0;
+                    for (Producto pro : dao.listarProducto(buscar)) {
+                        i = i + 1;
                 %>
                 <tr>
 

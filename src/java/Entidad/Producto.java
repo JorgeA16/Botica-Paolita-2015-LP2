@@ -14,8 +14,18 @@ public class Producto extends Seccion{
     private int id_seccion;
     private int id_unidad_medida;
 
-    public Producto()  {
+    
+    public Producto() {
+        this.nombre_producto = "";
+        this.cantidad = 0;
+        this.codigo = 0;
+        this.estado = 1;
+        this.composicion = "";
+        this.id_seccion = 0;
+        this.id_unidad_medida = 0;
     }
+    
+    
 
     
     public int getId_producto() {

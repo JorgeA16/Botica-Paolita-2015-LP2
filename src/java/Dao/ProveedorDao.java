@@ -9,4 +9,5 @@ public interface ProveedorDao {
     public boolean actualizarProveedor(Proveedor proveedor);
     public boolean eliminarProveedor(int id_proveedor);
     public List<Proveedor> listarProveedor();
+    public Proveedor buscarProveedorID(int id_proveedor);
 }
