@@ -110,7 +110,7 @@ boolean flat = false;
 
     @Override
     public List<Entrada> listarEntrada() {
-List<Entrada> Lista = null;
+        List<Entrada> Lista = null;
         Statement st = null;
         ResultSet rs = null;
         Entrada entrada = null;
