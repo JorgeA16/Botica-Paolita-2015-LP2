@@ -38,7 +38,7 @@ boolean flat = false;
         } catch (Exception e) {
             System.out.println("Error : "+e.getMessage());
             e.printStackTrace();
-            flat = true;
+            flat = false;
             try {
             cn.restablecer();
             } catch (Exception ex) {
@@ -120,7 +120,7 @@ boolean flat = false;
         Statement st = null;
         ResultSet rs = null;
         Entrada_Detalle entrada = null;
-        String query = "Select id_entrada, igv, descuento,serie,fecha,id_proveedor,numero_comp,id_comprobante, estado,id_usuario,id_forma_pago FROM entrada";
+        String query = "Select id_lote_interno, cantidad, precio_compra,fecha_ven,estado,stock,id_laboratorio,id_entrada, id_producto,id_unidad,cantidad_uni,lote FROM entrada_detalle";
         try {
             Lista = new ArrayList<>();
             st = cn.conexion().createStatement();
