@@ -85,7 +85,7 @@ boolean flat = false;
 
     @Override
     public boolean eliminarSalidaDetalle(int id_lote_interno) {
-boolean flat = false;
+        boolean flat = false;
         Statement st = null;
         String query = "DELETE FROM salida_detalle WHERE id_lote_interno="+id_lote_interno+";";
         try {
